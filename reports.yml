@@ -21,7 +21,7 @@
     - name: Display the JSON file content
       shell: "cat {{ item }}"
       with_fileglob:
-        - "{{ location }}/observatories.io37.ch/*.json"
+        - "{{ location }}/*.json"
       register: observatory
 
     - name: Iterate Json 
@@ -32,5 +32,5 @@
     - name: create obs
       template:
         src: observatory.html.j2
-        dest: "{{ location }}/observatories.io37.ch/index.html"
+        dest: "{{ location }}/index.html"
 
