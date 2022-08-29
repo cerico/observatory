@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="tablesaw-enhanced" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="The Mozilla Observatory is a project designed to help developers, system administrators, and security professionals configure their sites safely and securely.">
+    <meta property="og:title" content="Mozilla Observatory">
+
+    <!-- favicon stuff -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180"
+        href="https://observatory.mozilla.org/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="196x196"
+        href="https://observatory.mozilla.org/images/favicons/favicon-196x196.png">
+    <link rel="shortcut icon" href="https://observatory.mozilla.org/images/favicons/favicon.ico">
+    <title>Mozilla Observatory :: Scan Results for pop-gdp.netlify.app</title>
+    <style>
+        html {
+            --blue: #4582ec;
+            --indigo: #6610f2;
+            --purple: #6f42c1;
+            --pink: #e83e8c;
+            --red: #d9534f;
+            --orange: #f0ad4e;
+            --yellow: #ffc107;
+            --green: #3fad46;
+            --teal: #5bc0de;
+            --cyan: #17a2b8;
+            --white: #fff;
+            --gray: #666;
+            --gray-dark: #333;
+            --primary: #4582ec;
+            --secondary: #666;
+            --success: #3fad46;
+            --info: #5bc0de;
+            --warning: #f0ad4e;
+            --danger: #d9534f;
+            --light: #f2f2f2;
+            --dark: #333;
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --breakpoint-xxl: 1480px;
+            --breakpoint-xxxl: 1700px;
+            --breakpoint-xxxxl: 2000px;
+            --font-family-sans-serif: "Zilla Slab", "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+            --color-average: #FFA400;
+            --color-fail: #FF4E42;
+            --color-fail: #FFF;
+            --color-pass: #0CCE6B;
+          
+            --gauge-circle-size: 40px;
+            --gauge-label-font-size: 20px;
+            --gauge-label-line-height: 26px;
+            --gauge-percentage-font-size: 28px;
+            --gauge-wrapper-width: 40px;
+            --score-container-padding: 0px;
+        }
+
+        .h3 {
+            width: 90%;
+            text-align: left;
+            padding-top: 8px;
+        }
+
+        .grade-a {
+            background: #2d882d;
+            border: 6px solid #161;
+        }
+
+        .grade-b {
+            background: #aaaa39;
+            border: 6px solid #808015;
+        }
+
+        .grade-c {
+            background: #aa7039;
+            border: 6px solid #804915;
+        }
+
+        .grade-d, .grade-e {
+            background: #652770;
+            border: 6px solid #4a1054;
+        }
+
+        .grade-f {
+            background: #aa3939;
+            border: 6px solid #801515;
+        }
+
+        .container {
+            margin: 0;
+            font-family: Georgia, Times New Roman, Times, serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #1a1a1a;
+            text-align: left;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            display: flex;
+            padding: 2%;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 1600px;
+        }
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+    width: 100%;
+    margin-bottom: 1%;
+    padding: 11px;
+        }
+        @media only screen and (min-width: 768px) {
+            .card {
+                width: 30%;
+            }
+        }
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 1.25rem;
+        }
+        .grade-container {
+            border-radius: 12px;
+            color: #fff;
+            display: inline-block;
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 88px;
+            height: 128px;
+            line-height: 116px;
+            padding-right: 4px;
+            width: 128px;
+            text-align:center;
+        }
+        .grade-container sup {
+            float: right;
+            font-size: 52px;
+            position: relative;
+            top: 32px;
+            right: 10px;
+            line-height: 0;
+        }
+        .card-header {
+            background: #4582ec !important;
+            color: white;
+            padding: 8px;
+            display:flex;
+        }
+        .lh-scores-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+          }
+          
+          .lh-gauge__wrapper--pass {
+            color: var(--color-pass);
+            fill: var(--color-pass);
+            stroke: var(--color-pass);
+          }
+          
+          .lh-gauge__wrapper--average {
+            color: var(--color-average);
+            fill: var(--color-average);
+            stroke: var(--color-average);
+          }
+          
+          .lh-gauge__wrapper--fail {
+            color: var(--color-fail);
+            fill: var(--color-fail);
+            stroke: var(--color-fail);
+          }
+          
+          .lh-gauge {
+            stroke-linecap: round;
+            width: var(--gauge-circle-size);
+            height: var(--gauge-circle-size);
+          }
+          
+          .lh-gauge-base {
+              opacity: 0.1;
+              stroke: var(--circle-background);
+          }
+          
+          .lh-gauge-arc {
+              fill: none;
+              stroke: var(--circle-color);
+              transform-origin: 50% 50%;
+              animation: load-gauge var(--transition-length) ease forwards;
+              animation-delay: 250ms;
+          }
+          
+          .lh-gauge__svg-wrapper {
+            position: relative;
+            height: var(--gauge-circle-size);
+          }
+          
+          @keyframes load-gauge {
+            from { stroke-dasharray: 0 352; }
+          }
+          
+          .lh-gauge__percentage {
+            width: 100%;
+            height: var(--gauge-circle-size);
+            position: absolute;
+            font-size: calc(var(--gauge-circle-size) * 0.34 + 1.3px);
+            line-height: 0;
+            text-align: center;
+            top: calc(var(--score-container-padding) + var(--gauge-circle-size) / 2);
+          }
+          
+          .lh-gauge__wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-decoration: none;
+            padding: var(--score-container-padding);
+            --transition-length: 1s;
+            contain: content;
+            will-change: opacity;
+            width: var(--gauge-wrapper-width);
+          }
+          
+          .lh-gauge__label {
+            font-size: var(--gauge-label-font-size);
+            line-height: var(--gauge-label-line-height);
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+          }
+          .title {
+              font-size: 1rem;
+              margin-top: 1rem;
+              padding-left: 1rem;
+            }
+          .app {
+            border-bottom: 1px solid;
+          }
+          .date {
+  text-align: right;
+  padding-right: 15px;
+}
+</style>
+</head>
+
+<body>
+<div class="date">Scored: {{ date.stdout }}</div>
+<div class="container">
+{% for a in odata %}
+{% if a != None %}
+{% set c = (a[1] | int) %}
+    <a href="https://observatory.mozilla.org/analyze/{{ a[0] }}" class="card">
+        <div class="card-header">
+            <span class="h3">{{ a[0] }}</span>
+                      <div class="lh-gauge__wrapper lh-gauge__wrapper--fail">
+            <div class="lh-gauge__svg-wrapper">
+                <svg viewBox="0 0 120 120" class="lh-gauge">
+                  <circle class="lh-gauge-base" r="56" cx="60" cy="60" stroke-width="8"></circle>
+                  <circle class="lh-gauge-arc" r="56" cx="60" cy="60" stroke-width="8" style="transform: rotate(-87.9537deg); stroke-dasharray: {{ (c*3.19) | int }}px, 351.858px;"></circle>
+                </svg>
+              </div>
+              <div class="lh-gauge__percentage">{{ a[1] }}</div>
+              </div>
+        </div>
+        <div class="card-body">
+        {% if (a[1] | int) < 25 %}
+          <span class="grade-container grade-f">
+        {% elif (a[1] | int) < 45 %}
+          <span class="grade-container grade-d">
+        {% elif (a[1] | int) < 65 %}
+          <span class="grade-container grade-c">
+        {% elif (a[1] | int) < 85 %}
+          <span class="grade-container grade-b">
+        {% else %}
+          <span class="grade-container grade-a">
+        {% endif %}
+            <span class="grade-letter">{{ a[2] }}</span>
+          </span>
+        </div>
+    </a>
+
+{% endif %}
+{% endfor %}
+</div>
+</body>
+
+</html>

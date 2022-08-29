@@ -1,0 +1,37 @@
+---
+- name: Observatories
+  hosts: localhost
+  connection: local 
+  vars:
+    ansible_python_interpreter: /usr/local/bin/python3
+    location: /var/www/html/observatories.io37.ch
+  tasks:
+    - name: get the date
+      shell: "date | awk -F' ' '{print $2,$3,$4}'"
+      register: date
+
+    - name: Get the netlify sites
+      shell: "./node_modules/netlify-cli/bin/run sites:list | grep url | awk -F'https://' '{print $2}'"
+      register: res
+    
+    - name: create the observatories
+      shell: "./node_modules/observatory-cli/index.js {{ item }} --format=report |  grep :| jq -R -n -c '[inputs|split(\": \")|{(.[0]):.[1]}] | add' > observatories/{{ item }}.json"
+      with_items:
+        "{{ res.stdout_lines }}"
+
+    - name: Display the JSON file content
+      shell: "cat {{ item }}"
+      with_fileglob:
+        - "{{ location }}/observatories.io37.ch/*.json"
+      register: observatory
+
+    - name: Iterate Json 
+      set_fact:
+        odata: "{{ (odata | default([])) + [item.stdout | from_json | json_query('[\"HTTP Observatory Report\", Score, Grade, \"Full Report Url\"]')] }}"
+      loop: "{{ observatory.results }}"
+      
+    - name: create obs
+      template:
+        src: observatory.html.j2
+        dest: "{{ location }}/observatories.io37.ch/index.html"
+
