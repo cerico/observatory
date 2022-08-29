@@ -1,0 +1,1 @@
+37 06 * * * deploy make -f /home/deploy/observatory/Makefile -C /home/deploy/observatory
