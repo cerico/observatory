@@ -1,6 +1,6 @@
 # Observatory scores
 
-Observatory Scores: https://observatory-scores.netlify.app
+Observatory Scores: https://observatories.io37.ch
 
 
 - Displays Observatory scores 
