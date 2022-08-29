@@ -1,4 +1,4 @@
 reports:
 	ansible-playbook reports.yml
-cron:
+schedule:
 	sudo cp cron/observatory /etc/cron.d/observatory
