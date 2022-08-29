@@ -14,7 +14,7 @@
       register: res
     
     - name: create the observatories
-      shell: "./node_modules/observatory-cli/index.js {{ item }} --format=report |  grep :| jq -R -n -c '[inputs|split(\": \")|{(.[0]):.[1]}] | add' > observatories/{{ item }}.json"
+      shell: "./node_modules/observatory-cli/index.js {{ item }} --format=report |  grep :| jq -R -n -c '[inputs|split(\": \")|{(.[0]):.[1]}] | add' > {{ location }}/{{ item }}.json"
       with_items:
         "{{ res.stdout_lines }}"
 
